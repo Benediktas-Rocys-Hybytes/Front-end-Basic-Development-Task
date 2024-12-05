@@ -1,15 +1,21 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import About from "./About";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Services from "./Services";
+import About from "./About"; 
+import Home from "./Home";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Header/>
-      <About/> 
-      <Footer/>
-    </div>
+    <Router>
+      <div className="hero_area">
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

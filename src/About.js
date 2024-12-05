@@ -1,8 +1,12 @@
 import React from "react";
 import "./styles/style.css"; 
+import Header from "./Header";
+import Footer from "./Footer";
 
 const About = () => {
   return (
+    <>
+    <Header/>
     <section className="about_section layout_padding">
       <div className="container">
         <div className="row">
@@ -30,6 +34,8 @@ const About = () => {
         </div>
       </div>
     </section>
+    <Footer/>
+    </>
   );
 };
 

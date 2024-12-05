@@ -3,11 +3,11 @@ import "./styles/bootstrap.css";
 import "./styles/font-awesome.min.css";
 import "./styles/responsive.css";
 import "./styles/style.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="header_section">
-      {/* Top Header */}
       <div className="header_top">
         <div className="container-fluid">
           <div className="contact_nav">
@@ -22,48 +22,33 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {/* Bottom Header */}
       <div className="header_bottom">
         <div className="container-fluid">
           <nav className="navbar navbar-expand-lg custom_nav-container">
-            <a className="navbar-brand" href="index.html">
+            <Link className="navbar-brand" to="/">
               <span>Inance</span>
-            </a>
-
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className=""></span>
-            </button>
-
+            </Link>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link" href="index.html">
+                  <Link className="nav-link" to="/">
                     Home
-                  </a>
+                  </Link>
                 </li>
-                <li className="nav-item active">
-                  <a className="nav-link" href="about.html">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/about">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="service.html">
+                  <Link className="nav-link" to="/services">
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="contact.html">
+                  <Link className="nav-link" to="/contact">
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

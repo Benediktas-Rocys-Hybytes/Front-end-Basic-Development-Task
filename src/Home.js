@@ -6,6 +6,7 @@ import ProfessionalSection from "./ProfessionalSection";
 import ServiceSection from "./ServiceSection";
 import Header from "./Header";
 import Footer from "./Footer";
+import ClientSection from "./ClientSection";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <AboutSection />
       <ProfessionalSection />
       <ServiceSection />
+      <ClientSection/>
       <Footer/>
     </div>
   );

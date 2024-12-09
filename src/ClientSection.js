@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./styles/style.css"; 
+import "./styles/style.css";
 
 const clientData = [
   {
@@ -17,34 +17,7 @@ const clientData = [
     stars: 5,
     text: "Chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum.",
   },
-  
 ];
-
-const NextArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <button
-      className={className}
-      style={{ ...style, display: "block", background: "#0355cc" }}
-      onClick={onClick}
-    >
-      &#x276F;
-    </button>
-  );
-};
-
-const PrevArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <button
-      className={className}
-      style={{ ...style, display: "block", background: "#0355cc" }}
-      onClick={onClick}
-    >
-      &#x276E;
-    </button>
-  );
-};
 
 const renderStars = (count) => {
   return Array.from({ length: 5 }).map((_, index) => (
@@ -58,14 +31,23 @@ const renderStars = (count) => {
 };
 
 const ClientSection = () => {
+  const sliderRef = React.useRef(null);
+
+  const handleNext = () => {
+    sliderRef.current.slickNext();
+  };
+
+  const handlePrev = () => {
+    sliderRef.current.slickPrev();
+  };
+
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    arrows: false, // Disable default arrows
     responsive: [
       {
         breakpoint: 1024,
@@ -85,7 +67,7 @@ const ClientSection = () => {
           <h2>What Our Clients Say</h2>
         </div>
         <div className="carousel-wrap layout_padding2-top">
-          <Slider {...settings}>
+          <Slider {...settings} ref={sliderRef}>
             {clientData.map((client, index) => (
               <div className="item" key={index}>
                 <div className="box">
@@ -108,6 +90,15 @@ const ClientSection = () => {
               </div>
             ))}
           </Slider>
+          {/* Navigation buttons */}
+          <div className="carousel-wrap owl-nav">
+            <button className="owl-prev" onClick={handlePrev}>
+              &#x276E;
+            </button>
+            <button className="owl-next" onClick={handleNext}>
+              &#x276F;
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -115,3 +106,4 @@ const ClientSection = () => {
 };
 
 export default ClientSection;
+

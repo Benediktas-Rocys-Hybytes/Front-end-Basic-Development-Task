@@ -1,6 +1,6 @@
 import React from "react";
-import "./styles/style.css";
-import "./styles/font-awesome.min.css";
+import "../styles/style.css";
+import "../styles/font-awesome.min.css";
 
 const Footer = () => {
   return (

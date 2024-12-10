@@ -2,8 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./styles/style.css";
+import "../styles/style.css";
 
+// Data for the clients used in the carousel
 const clientData = [
   {
     image: "images/client-1.jpg",
@@ -47,7 +48,7 @@ const ClientSection = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    arrows: false, // Disable default arrows
+    arrows: false, 
     responsive: [
       {
         breakpoint: 1024,

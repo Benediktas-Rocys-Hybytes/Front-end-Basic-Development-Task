@@ -1,8 +1,8 @@
 import React from "react";
-import "./styles/bootstrap.css";
-import "./styles/font-awesome.min.css";
-import "./styles/responsive.css";
-import "./styles/style.css";
+import "../styles/bootstrap.css";
+import "../styles/font-awesome.min.css";
+import "../styles/responsive.css";
+import "../styles/style.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {

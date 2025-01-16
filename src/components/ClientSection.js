@@ -4,34 +4,46 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/style.css";
 
-// Data for the clients used in the carousel
-const clientData = [
-  {
-    image: "images/client-1.jpg",
-    name: "Jorch Morik",
-    stars: 5,
-    text: "Chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum.",
-  },
-  {
-    image: "images/client-2.jpg",
-    name: "Jorch Morik",
-    stars: 5,
-    text: "Chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum.",
-  },
-];
+const ClientSection = ({ language }) => {
+  const translations = {
+    en: {
+      heading: "What Our Clients Say",
+      clients: [
+        {
+          image: "images/client-1.jpg",
+          name: "Jorch Morik",
+          stars: 5,
+          text: "Chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum.",
+        },
+        {
+          image: "images/client-2.jpg",
+          name: "Jorch Morik",
+          stars: 5,
+          text: "Chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum.",
+        },
+      ],
+    },
+    ar: {
+      heading: "ماذا يقول عملاؤنا",
+      clients: [
+        {
+          image: "images/client-1.jpg",
+          name: "خورش موريك",
+          stars: 5,
+          text: "النصوص حسب الضرورة، مما يجعل هذا أول مولد حقيقي على الإنترنت. يستخدم قاموسًا يحتوي على أكثر من 200 كلمة لاتينية، بالإضافة إلى مجموعة من الهياكل الجملية النموذجية لإنشاء لوريم إيبسوم.",
+        },
+        {
+          image: "images/client-2.jpg",
+          name: "خورش موريك",
+          stars: 5,
+          text: "النصوص حسب الضرورة، مما يجعل هذا أول مولد حقيقي على الإنترنت. يستخدم قاموسًا يحتوي على أكثر من 200 كلمة لاتينية، بالإضافة إلى مجموعة من الهياكل الجملية النموذجية لإنشاء لوريم إيبسوم.",
+        },
+      ],
+    },
+  };
 
-const renderStars = (count) => {
-  return Array.from({ length: 5 }).map((_, index) => (
-    <i
-      key={index}
-      className={`fa fa-star${index < count ? "" : "-o"}`}
-      aria-hidden="true"
-      style={{ color: "#fbaf5d", marginRight: "5px" }}
-    ></i>
-  ));
-};
+  const t = translations[language] || translations.en;
 
-const ClientSection = () => {
   const sliderRef = React.useRef(null);
 
   const handleNext = () => {
@@ -48,7 +60,7 @@ const ClientSection = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    arrows: false, 
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -62,14 +74,16 @@ const ClientSection = () => {
   };
 
   return (
-    <section className="client_section">
+    <section
+      className={`client_section ${language === "ar" ? "rtl" : ""}`}
+    >
       <div className="container">
         <div className="heading_container heading_center">
-          <h2>What Our Clients Say</h2>
+          <h2>{t.heading}</h2>
         </div>
         <div className="carousel-wrap layout_padding2-top">
           <Slider {...settings} ref={sliderRef}>
-            {clientData.map((client, index) => (
+            {t.clients.map((client, index) => (
               <div className="item" key={index}>
                 <div className="box">
                   <div className="client_id">
@@ -79,7 +93,14 @@ const ClientSection = () => {
                     <div className="client_detail">
                       <div className="client_info">
                         <h6>{client.name}</h6>
-                        {renderStars(client.stars)}
+                        {Array.from({ length: 5 }).map((_, starIndex) => (
+                          <i
+                            key={starIndex}
+                            className={`fa fa-star${starIndex < client.stars ? "" : "-o"}`}
+                            aria-hidden="true"
+                            style={{ color: "#fbaf5d", marginRight: "5px" }}
+                          ></i>
+                        ))}
                       </div>
                       <i className="fa fa-quote-left" aria-hidden="true"></i>
                     </div>
@@ -107,4 +128,3 @@ const ClientSection = () => {
 };
 
 export default ClientSection;
-

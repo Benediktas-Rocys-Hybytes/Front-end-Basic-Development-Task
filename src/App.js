@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import ContactPage from "./pages/ContactPage";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [language, setLanguage] = useState("en");
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/about" element={<About language={language} />} />
           <Route path="/contact" element={<ContactPage language={language} />} />
         </Routes>
+        <Footer/>
       </div>
     </Router>
   );

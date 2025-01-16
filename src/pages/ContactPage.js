@@ -4,12 +4,12 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 
-const ContactPage = () => {
+const ContactPage = ({ language }) => {
   return (
     <>
     
-    <ContactSection/>
-    <Footer/>
+    <ContactSection language={language}/>
+  
     </>
   );
 };

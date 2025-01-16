@@ -3,12 +3,12 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ServiceSection from "../components/ServiceSection";
 
-const Services = () => {
+const Services = ({ language }) => {
   return (
     <>
     
-    <ServiceSection/>
-    <Footer/>
+    <ServiceSection language={language}/>
+ 
     </>
   );
 };

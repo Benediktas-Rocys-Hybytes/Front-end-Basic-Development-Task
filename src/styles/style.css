@@ -877,6 +877,35 @@ html[dir="rtl"] .slider_section .order-md-1 {
   order: 1;
 }
 
+html[dir="rtl"] .client_section .heading_container {
+  text-align: right;
+}
+
+/* General RTL Alignment */
+html[dir="rtl"] .client_section .client_detail {
+  text-align: right;
+}
+
+/* Ensure proper RTL alignment for client text */
+html[dir="rtl"] .client_section .client_text {
+  text-align: right;
+  direction: rtl; /* Ensures proper text flow */
+}
+
+
+/* Adjust Star Alignment */
+html[dir="rtl"] .client_section .fa-star, 
+html[dir="rtl"] .client_section .fa-star-o {
+  margin-left: 5px; /* Instead of margin-right */
+  margin-right: 0;
+}
+
+/* Fix Navigation Buttons in RTL */
+html[dir="rtl"] .carousel-wrap.owl-nav {
+  direction: ltr; /* Keeps navigation buttons in their original direction */
+}
+
+
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */

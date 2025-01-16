@@ -6,7 +6,7 @@ import ServiceSection from "../components/ServiceSection";
 const Services = () => {
   return (
     <>
-    <Header/>
+    
     <ServiceSection/>
     <Footer/>
     </>

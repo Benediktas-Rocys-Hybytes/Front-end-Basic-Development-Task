@@ -1,4 +1,16 @@
-const FeatureSection = () => {
+const FeatureSection = ({ language }) => {
+  const translations = {
+    en: {
+      Repair: "Repair",
+      Improve: "Improve",
+      Maintain: "Maintain",
+    },
+    ar: {
+      Repair: "إصلاح",
+      Improve: "تحسين",
+      Maintain: "صيانة",
+    },
+  };
     const svgs = {
       Repair: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.995 511.995" width="64" height="64">
@@ -21,26 +33,28 @@ const FeatureSection = () => {
         </svg>
       ),
     };
-  
-    return (
-      <section className="feature_section">
-        <div className="container">
-          <div className="feature_container">
-            {[
-              { name: "Repair", iconClass: "icon-repair" },
-              { name: "Improve", iconClass: "icon-improve active" },
-              { name: "Maintain", iconClass: "icon-maintain" },
-            ].map((feature, index) => (
-              <div className={`box ${feature.iconClass}`} key={index}>
-                <div className="img-box">{svgs[feature.name]}</div>
-                <h5 className="name">{feature.name}</h5>
-              </div>
-            ))}
-          </div>
+    
+    const t = translations[language] || translations.en;
+
+     return (
+    <section className={`feature_section ${language === "ar" ? "rtl" : ""}`}>
+      <div className="container">
+        <div className="feature_container">
+          {[
+            { name: "Repair", iconClass: "icon-repair" },
+            { name: "Improve", iconClass: "icon-improve active" },
+            { name: "Maintain", iconClass: "icon-maintain" },
+          ].map((feature, index) => (
+            <div className={`box ${feature.iconClass}`} key={index}>
+              <div className="img-box">{svgs[feature.name]}</div>
+              <h5 className="name">{t[feature.name]}</h5>
+            </div>
+          ))}
         </div>
-      </section>
-    );
-  };
+      </div>
+    </section>
+  );
+};
   
   export default FeatureSection;
   

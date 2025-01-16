@@ -9,12 +9,13 @@ import Footer from "../components/Footer";
 import ClientSection from "../components/ClientSection";
 import ContactSection from "../components/ContactSection";
 
-const Home = () => {
+const Home = ({ language }) => {
+  console.log("Language in Home:", language);
   return (
     <div>
-      <Header/>
-      <SliderSection />
-      <FeatureSection />
+      
+      <SliderSection language={language}  />
+      <FeatureSection language={language}/>
       <AboutSection />
       <ProfessionalSection />
       <ServiceSection />

@@ -855,5 +855,28 @@ a:focus {
   color: inherit;
 }
 
+/* RTL Layout Adjustments */
+.rtl-layout {
+  text-align: right;
+}
+
+.rtl-nav {
+  flex-direction: row-reverse;
+}
+
+/* RTL Layout */
+html[dir="rtl"] .slider_section .detail-box {
+  text-align: right;
+}
+
+html[dir="rtl"] .slider_section .order-md-2 {
+  order: 2;
+}
+
+html[dir="rtl"] .slider_section .order-md-1 {
+  order: 1;
+}
+
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */

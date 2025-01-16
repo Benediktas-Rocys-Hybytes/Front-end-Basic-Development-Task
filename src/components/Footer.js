@@ -3,15 +3,17 @@ import "../styles/style.css";
 import "../styles/font-awesome.min.css";
 
 const Footer = () => {
+  const isRTL = document.documentElement.dir === "rtl";
+
   return (
-    <div>
+    <div dir={isRTL ? "rtl" : "ltr"}>
       {/* Info Section */}
       <section className="info_section">
         <div className="container">
-          <h4>Get In Touch</h4>
+          <h4>{isRTL ? "تواصل معنا" : "Get In Touch"}</h4>
           <div className="row">
             <div className="col-lg-10 mx-auto">
-              <div className="info_items">
+              <div className={`info_items ${isRTL ? "rtl-layout" : ""}`}>
                 <div className="row">
                   {/* Location Info */}
                   <div className="col-md-4">
@@ -20,7 +22,7 @@ const Footer = () => {
                         <div className="img-box">
                           <i className="fa fa-map-marker" aria-hidden="true"></i>
                         </div>
-                        <p>Lorem Ipsum is simply dummy text</p>
+                        <p>{isRTL ? "النص الوهمي" : "Lorem Ipsum is simply dummy text"}</p>
                       </div>
                     </a>
                   </div>
@@ -53,7 +55,7 @@ const Footer = () => {
         </div>
         {/* Social Section */}
         <div className="social-box">
-          <h4>Follow Us</h4>
+          <h4>{isRTL ? "تابعنا" : "Follow Us"}</h4>
           <div className="box">
             <a href="#">
               <i className="fa fa-facebook" aria-hidden="true"></i>
@@ -74,13 +76,13 @@ const Footer = () => {
       {/* Footer Section */}
       <footer className="footer_section">
         <div className="container">
-            <p>
-            &copy; {new Date().getFullYear()} All Rights Reserved By{" "}
+          <p>
+            &copy; {new Date().getFullYear()}{" "}
+            {isRTL ? "كل الحقوق محفوظة" : "All Rights Reserved"} By{" "}
             <a href="https://html.design/">Free Html Templates</a>
-            </p>
+          </p>
         </div>
-        </footer>
-
+      </footer>
     </div>
   );
 };

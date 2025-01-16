@@ -7,7 +7,7 @@ import ContactSection from "../components/ContactSection";
 const ContactPage = () => {
   return (
     <>
-    <Header/>
+    
     <ContactSection/>
     <Footer/>
     </>
